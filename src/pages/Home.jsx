@@ -7,6 +7,7 @@ import {
 } from "../components/ui/carousel";
 import { motion, useInView } from "framer-motion";
 
+import BasketballResults from "../components/other/ResultsCard";
 import { useRef } from "react";
 
 const ImageCarousel = () => {
@@ -68,11 +69,16 @@ export default function HomePage() {
   const resultsRef = useRef(null);
   const teamsRef = useRef(null);
   const galleryRef = useRef(null);
+  const locationRef = useRef(null);
 
   const heroInView = useInView(heroRef, { once: true });
   const resultsInView = useInView(resultsRef, { once: true, margin: "-100px" });
   const teamsInView = useInView(teamsRef, { once: true, margin: "-100px" });
   const galleryInView = useInView(galleryRef, { once: true, margin: "-100px" });
+  const locationInView = useInView(locationRef, {
+    once: true,
+    margin: "-100px",
+  });
 
   return (
     <div className="min-h-screen" style={{ backgroundColor: "#FFFCFB" }}>
@@ -130,66 +136,13 @@ export default function HomePage() {
           </motion.div>
 
           <div className="space-y-6">
-            <motion.div
-              className="cardinals-card-hover rounded-lg p-6 border border-white/10"
-              style={{ backgroundColor: "rgba(255, 252, 251, 0.1)" }}
-              initial={{ opacity: 0, y: 30 }}
-              animate={resultsInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              <div className="flex justify-between items-center mb-4 text-white/70">
-                <span>15 Aug 2025</span>
-                <span>London Basketball League</span>
-                <span>Waltham Forest, London</span>
-              </div>
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-4">
-                  <div
-                    className="w-8 h-6 rounded flex items-center justify-center"
-                    style={{ backgroundColor: "#ED3500" }}
-                  >
-                    <span className="text-white text-xs font-bold">🏀</span>
-                  </div>
-                  <span className="text-white font-bold text-2xl font-righteous">
-                    CARDINALS
-                  </span>
-                  <span className="text-white font-bold text-4xl">89</span>
-                </div>
-                <div className="text-center">
-                  <div className="text-white/70 mb-2">Senior Men</div>
-                  <div className="text-white/50">vs</div>
-                  <div
-                    className="w-8 h-8 rounded-full flex items-center justify-center mt-2"
-                    style={{ backgroundColor: "#ED3500" }}
-                  >
-                    <span className="text-white text-xs">W</span>
-                  </div>
-                </div>
-                <div className="flex items-center gap-4">
-                  <span className="text-white font-bold text-4xl">76</span>
-                  <span className="text-white font-bold text-2xl font-righteous">
-                    EAGLES
-                  </span>
-                  <div
-                    className="w-8 h-6 rounded flex items-center justify-center"
-                    style={{ backgroundColor: "#FFD8D8" }}
-                  >
-                    <span
-                      className="text-xs font-bold"
-                      style={{ color: "#093FB4" }}
-                    >
-                      🦅
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
+            <BasketballResults />
           </div>
         </div>
       </motion.section>
 
       {/* Teams Section */}
-      {/* <motion.section
+      <motion.section
         ref={teamsRef}
         className="py-16 px-4"
         style={{ backgroundColor: "#FFFCFB" }}
@@ -265,7 +218,7 @@ export default function HomePage() {
             </motion.div>
           </div>
         </div>
-      </motion.section> */}
+      </motion.section>
 
       {/* Gallery Section */}
       {/* <motion.section
@@ -297,6 +250,113 @@ export default function HomePage() {
           </div>
         </div>
       </motion.section> */}
+
+      {/* Location Section */}
+      <motion.section
+        ref={locationRef}
+        className="py-16 px-4"
+        style={{ backgroundColor: "#FFFCFB" }}
+      >
+        <div className="max-w-6xl mx-auto">
+          <motion.div
+            className="flex items-center gap-4 mb-12"
+            initial={{ opacity: 0, x: -50 }}
+            animate={locationInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.6 }}
+          >
+            <h2
+              className="font-righteous text-4xl"
+              style={{ color: "#093FB4" }}
+            >
+              Find Us
+            </h2>
+            <div
+              className="h-1 flex-1 max-w-32"
+              style={{ backgroundColor: "#ED3500" }}
+            ></div>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 gap-12 items-start">
+            <motion.div
+              className="space-y-6"
+              initial={{ opacity: 0, y: 30 }}
+              animate={locationInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              <div
+                className="cardinals-card-hover p-6 rounded-lg border-2"
+                style={{
+                  borderColor: "#FFD8D8",
+                  backgroundColor: "rgba(255, 216, 216, 0.1)",
+                }}
+              >
+                <h3
+                  className="font-righteous text-2xl mb-4"
+                  style={{ color: "#093FB4" }}
+                >
+                  🏀 Home Court
+                </h3>
+                <div className="space-y-3 text-lg">
+                  <div className="flex items-start gap-3">
+                    <span className="text-2xl">📍</span>
+                    <div>
+                      <p style={{ color: "#093FB4" }} className="font-semibold">
+                        Waltham Forest Sports Centre
+                      </p>
+                      <p style={{ color: "#ED3500" }}>Chingford Road</p>
+                      <p style={{ color: "#ED3500" }}>
+                        Walthamstow, London E17 4JF
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <span className="text-2xl">📞</span>
+                    <p style={{ color: "#093FB4" }}>020 8496 3000</p>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <span className="text-2xl">✉️</span>
+                    <p style={{ color: "#093FB4" }}>
+                      info@walthamforestcardinals.com
+                    </p>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <span className="text-2xl">🕐</span>
+                    <div>
+                      <p style={{ color: "#093FB4" }} className="font-semibold">
+                        Training Times:
+                      </p>
+                      <p style={{ color: "#ED3500" }}>
+                        Mon & Wed: 7:00 PM - 9:00 PM
+                      </p>
+                      <p style={{ color: "#ED3500" }}>
+                        Sat: 10:00 AM - 12:00 PM
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div
+              className="h-96 rounded-lg overflow-hidden shadow-lg"
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={locationInView ? { opacity: 1, scale: 1 } : {}}
+              transition={{ duration: 0.6, delay: 0.4 }}
+            >
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2476.8234567890123!2d-0.0123456789!3d51.5987654321!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sWaltham%20Forest%20Sports%20Centre!5e0!3m2!1sen!2suk!4v1234567890123!5m2!1sen!2suk"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Waltham Forest Cardinals Location"
+              ></iframe>
+            </motion.div>
+          </div>
+        </div>
+      </motion.section>
 
       {/* Footer */}
       <footer
