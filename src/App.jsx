@@ -1,4 +1,9 @@
-import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import {
+  Navigate,
+  Route,
+  BrowserRouter as Router,
+  Routes,
+} from "react-router-dom";
 
 import About from "./pages/About"; // Import the new page
 import FixturesPage from "./pages/HistoricFixtures"; // Assuming a Home page exists
