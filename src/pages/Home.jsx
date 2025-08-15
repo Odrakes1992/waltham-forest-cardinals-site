@@ -1,6 +1,67 @@
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "../components/ui/carousel";
 import { motion, useInView } from "framer-motion";
 
 import { useRef } from "react";
+
+const ImageCarousel = () => {
+  let teamsInView = true;
+  return (
+    <Carousel>
+      <CarouselContent>
+        <CarouselItem>
+          <motion.div
+            className="relative h-96 rounded-lg overflow-hidden cardinals-card-hover cursor-pointer"
+            initial={{ opacity: 0, y: 50 }}
+            animate={teamsInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.3 }}
+          >
+            <img
+              src="https://images.unsplash.com/photo-1574623452334-1e0ac2b3ccb4?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="Collection of basketballs"
+              fill
+              className="object-cover object-left"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-blue-900/90 to-transparent"></div>
+            <div className="absolute bottom-0 left-0 right-0 p-6">
+              <h4 className="font-righteous text-2xl text-white mb-2">
+                Senior Men
+              </h4>
+            </div>
+          </motion.div>
+        </CarouselItem>
+        <CarouselItem>
+          <motion.div
+            className="relative h-96 rounded-lg overflow-hidden cardinals-card-hover cursor-pointer"
+            initial={{ opacity: 0, y: 50 }}
+            animate={teamsInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.3 }}
+          >
+            <img
+              src="https://images.unsplash.com/photo-1574623452334-1e0ac2b3ccb4?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="Collection of basketballs"
+              fill
+              className="object-cover object-left"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-blue-900/90 to-transparent"></div>
+            <div className="absolute bottom-0 left-0 right-0 p-6">
+              <h4 className="font-righteous text-2xl text-white mb-2">
+                Senior Men
+              </h4>
+            </div>
+          </motion.div>
+        </CarouselItem>
+      </CarouselContent>
+      <CarouselPrevious />
+      <CarouselNext />
+    </Carousel>
+  );
+};
 
 export default function HomePage() {
   const heroRef = useRef(null);
@@ -128,7 +189,7 @@ export default function HomePage() {
       </motion.section>
 
       {/* Teams Section */}
-      <motion.section
+      {/* <motion.section
         ref={teamsRef}
         className="py-16 px-4"
         style={{ backgroundColor: "#FFFCFB" }}
@@ -204,10 +265,10 @@ export default function HomePage() {
             </motion.div>
           </div>
         </div>
-      </motion.section>
+      </motion.section> */}
 
       {/* Gallery Section */}
-      <motion.section
+      {/* <motion.section
         ref={galleryRef}
         className="py-16 px-4"
         style={{ backgroundColor: "#FFD8D8" }}
@@ -231,22 +292,11 @@ export default function HomePage() {
             ></div>
           </motion.div>
 
-          <motion.div
-            className="relative h-96 md:h-[500px] rounded-lg overflow-hidden"
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={galleryInView ? { opacity: 1, scale: 1 } : {}}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            <img
-              src="https://images.unsplash.com/photo-1574623452334-1e0ac2b3ccb4?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              alt="Collection of basketballs"
-              fill
-              className="object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-          </motion.div>
+          <div className="max-w-6xl">
+            <ImageCarousel />
+          </div>
         </div>
-      </motion.section>
+      </motion.section> */}
 
       {/* Footer */}
       <footer
