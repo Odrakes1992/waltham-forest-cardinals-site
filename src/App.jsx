@@ -6,12 +6,12 @@ import Home from "./pages/Home";
 
 const App = () => {
   return (
-    <Router>
+    <Router basename="/waltham-forest-cardinals-site">
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/fixtures" element={<FixturesPage />} />
-        {/* Add more routes as needed */}
+        <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </Router>
   );
