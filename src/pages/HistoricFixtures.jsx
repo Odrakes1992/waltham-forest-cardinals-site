@@ -1,7 +1,6 @@
-"use client";
-
 import { motion, useInView } from "framer-motion";
 
+import { Link } from "react-router-dom";
 import { useRef } from "react";
 
 export default function FixturesPage() {
@@ -184,6 +183,27 @@ export default function FixturesPage() {
         style={{ backgroundColor: "#093FB4" }}
       >
         <div className="max-w-6xl mx-auto">
+          <div className="mb-8">
+            <Link
+              to="/"
+              className="inline-flex items-center gap-2 text-white hover:text-opacity-80 transition-colors"
+            >
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M10 19l-7-7m0 0l7-7m-7 7h18"
+                />
+              </svg>
+              <span className="font-righteous text-lg">Back to Home</span>
+            </Link>
+          </div>
           <motion.div
             className="text-center"
             initial={{ opacity: 0, y: 30 }}

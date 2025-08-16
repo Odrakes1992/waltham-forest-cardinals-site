@@ -8,6 +8,7 @@ import {
 import { motion, useInView } from "framer-motion";
 
 import BasketballResults from "../components/other/ResultsCard";
+import { Link } from "react-router-dom";
 import { useRef } from "react";
 
 const ImageCarousel = () => {
@@ -130,9 +131,11 @@ export default function HomePage() {
               className="h-1 flex-1 max-w-32"
               style={{ backgroundColor: "#ED3500" }}
             ></div>
-            <button className="text-white/70 hover:text-white text-lg font-righteous">
-              Fixtures
-            </button>
+            <Link to="/fixtures">
+              <button className="text-white/70 hover:text-white text-lg font-righteous">
+                View all results
+              </button>
+            </Link>
           </motion.div>
 
           <div className="space-y-6">
