@@ -1,7 +1,7 @@
 import {
   Navigate,
   Route,
-  BrowserRouter as Router,
+  HashRouter as Router,
   Routes,
 } from "react-router-dom";
 
@@ -11,7 +11,7 @@ import Home from "./pages/Home";
 
 const App = () => {
   return (
-    <Router basename="/waltham-forest-cardinals-site">
+    <Router>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
